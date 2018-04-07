@@ -32,16 +32,18 @@ static String answer(int D,String code){
 static String danger(int D,String code){
 	int Damage=1,shoot=1,swaping=0,z=0;
 	String character,swaping1="0",str="0",strIncremented=new String("0");;
-	for(int i=0;i<code.length()-1;i++){
+	for(int i=0;i<code.length();i++){
 	character=Character.toString(code.charAt(i));
 	z=i;
-}
+
 	if(character == "C"){
 		Damage*=2;
 	}
 	else {
 		
 		if(shoot+(Damage-1) > D){
+			swaping+=1;
+			System.out.println("IF"+character);
 			strIncremented+=(char)(str.charAt(0)+1);
 			code =check(D,code,shoot,z);
 			//String code1 = swap(D,code,i);strIncremented+=(char)(str.charAt(i)+1);
@@ -49,8 +51,11 @@ static String danger(int D,String code){
 		}
 		shoot =shoot + (Damage-1);	
 	}
-	swaping1= Integer.toString(swaping);	
-return strIncremented;
+	character.delete(0);
+	swaping1= Integer.toString(swaping);
+	}	
+	System.out.println("DANGER");
+return swaping1;
 }
 
 
@@ -67,6 +72,7 @@ static String check(int D,String code,int shoot,int i1){
 		a=b;
 		c=d;
 	}
+	System.out.println("cHEACK");
 	return sbldr.toString();
 }
 }
